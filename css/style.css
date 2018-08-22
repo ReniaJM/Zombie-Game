@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+
+.board {
+    min-height: 900px;
+    height: 100vh;
+    background: url('../images/tlo.jpg');
+    background-position: center top;
+    background-size: cover;
+    overflow: hidden; /* chcemy wszystko poza planszą ukrywać */
+    position: relative;
+    cursor: none;
+}
+
+
+.score{
+    font-family: 'Bangers', cursive;
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    right: 50%;
+    bottom: 50px;
+
+}
+.cursor{
+    width: 136px;
+    height: 136px;
+    background: url("../images/cursor.png");
+    z-index: 1000;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    pointer-events: none;
+
+}
+.zombie {
+    width: 200px;
+    height: 312px;
+    /*border: 1px solid red;*/
+    background: url("../images/walkingdead.png");
+    animation:
+            zombieWalk 0.3s 0s infinite steps(9),
+            zombieMove 0.3s 0s 1 linear;
+    position: absolute;
+    left: 110%;
+    bottom: 100px; /* 175px to jest max */
+    transform-origin: 50% 100%;
+}
+.zombie span{
+    position: absolute;
+    left: 100px;
+    top: -30px;
+    transform: translate(-10%, 0);
+    width: 60px;
+    height: 15px;
+    border-radius: 10px;
+    /*background: red;*/
+    border: 3px solid hotpink;
+    background-color: red;
+    display: block;
+
+}
+
+@keyframes zombieWalk {
+
+    100% {
+        background-position: -1800px 0;
+    }
+
+}
+
+@keyframes zombieMove {
+    0% {
+
+        left: 110%
+    }
+
+    100% {
+        left: -300px;
+    }
+}
